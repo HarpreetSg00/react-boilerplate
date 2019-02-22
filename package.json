@@ -13,7 +13,7 @@
         "prod:build-server": "webpack --env.NODE_ENV=production --mode=production --config webpack.config.server.js --watch",
         "prod:build-client": "webpack --env.NODE_ENV=production --mode=production --config webpack.config.client.js --watch"
     },
-    "author": "",
+    "author": "Studio Graphene",
     "license": "ISC",
     "devDependencies": {
         "babel-cli": "6.26.0",
