@@ -1,5 +1,4 @@
-[reactboilerplate-sg
-](## React Boilerplate with Server side rendering
+## React Boilerplate with Server side rendering
 
 ```
 #directory structure
@@ -33,4 +32,3 @@ npm install
 npm run build
 ```
 Application will be served on http://localhost:3005
-)
