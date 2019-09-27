@@ -19,12 +19,19 @@ export default (req, store) => {
         <!DOCTYPE html>
         <html>
             <head>
+              
+               
+               
+
                 ${helmet.title.toString()}
                 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
                 ${helmet.meta.toString()}
 
                 <!-- Stylesheets -->
                 <link rel="stylesheet" href="/css/style.css" />
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
             </head>
             <body>
                 <div id="root">${content}</div>
@@ -32,6 +39,7 @@ export default (req, store) => {
                     window.INITIAL_STATE = ${serialize(store.getState())}
                 </script>
                 <!-- Script -->
+               
                 <script type="text/javascript" src="/bundle.js"></script>
             </body>
         </html>

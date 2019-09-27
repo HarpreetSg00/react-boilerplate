@@ -1,6 +1,6 @@
 const configDev = {
     API: {
-        url: ''
+        url: 'http://51.145.115.5'
     }
 }
 
