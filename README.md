@@ -29,6 +29,6 @@ npm start
 #### Production build
 ```
 npm install
-npm run build
+npm run deploy
 ```
 Application will be served on http://localhost:3005

@@ -6,8 +6,8 @@ import storeClient from './store';
 import App from './app';
 
 ReactDOM.hydrate(
-    <Provider store={storeClient()}>
-       <App />
-    </Provider>, document.querySelector('#root')
+	<Provider store={storeClient()}>
+		<App />
+	</Provider>,
+	document.querySelector('#root')
 );
-    

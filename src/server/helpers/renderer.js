@@ -4,18 +4,18 @@ import { StaticRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Website from '../../client/layout/Website/Website';
 import serialize from 'serialize-javascript';
-import Helmet from 'react-helmet'; 
+import Helmet from 'react-helmet';
 
 export default (req, store) => {
-    const content = renderToString(
-        <Provider store={store}>
-            <StaticRouter location={req.path} context={{}}>
-                <Website />
-            </StaticRouter>
-        </Provider>
-    );
-    const helmet = Helmet.renderStatic();
-    return `
+	const content = renderToString(
+		<Provider store={store}>
+			<StaticRouter location={req.path} context={{}}>
+				<Website />
+			</StaticRouter>
+		</Provider>
+	);
+	const helmet = Helmet.renderStatic();
+	return `
         <!DOCTYPE html>
         <html>
             <head>
@@ -36,4 +36,4 @@ export default (req, store) => {
             </body>
         </html>
     `;
-}
+};
