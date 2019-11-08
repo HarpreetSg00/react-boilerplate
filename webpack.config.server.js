@@ -6,6 +6,7 @@ const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const historyFallback = require('connect-history-api-fallback');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 const config = {
@@ -38,7 +39,8 @@ const config = {
 			filename: 'css/style.css',
 			allChunks: true
 		}),
-		new Dotenv()
+		new Dotenv(),
+		new CompressionPlugin()
 	]
 };
 
