@@ -1,12 +1,20 @@
-#intrim build image
-FROM node:12.13-slim as build
-COPY . /usr/src/react_boilerplate
-WORKDIR /usr/src/react_boilerplate
-RUN npm install
-RUN npm run deploy
+FROM node:10-slim
 
-#server image
-FROM node:12.13-slim
+# Create app directory
 WORKDIR /usr/src/react_boilerplate
-COPY --from=build /usr/src/react_boilerplate/build build
-COPY --from=build /usr/src/react_boilerplate/public public
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package*.json ./
+
+RUN npm install
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+COPY . .
+
+# Uncomment below line if not using with Docker-compose
+#EXPOSE 3000
+#CMD [ "npm", "start" ]

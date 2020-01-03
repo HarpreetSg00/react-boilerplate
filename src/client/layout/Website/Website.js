@@ -18,7 +18,7 @@ class WebsiteLayout extends React.Component {
 
 	render() {
 		return (
-			<div className='site-wrapper'>
+			<div className="site-wrapper">
 				<Header />
 				{renderRoutes(appRoutes[0].routes)}
 				<Footer />
@@ -36,8 +36,5 @@ const mapDispatchToProps = dispatch => ({
 });
 
 export default withRouter(
-	connect(
-		mapStateToProps,
-		mapDispatchToProps
-	)(WebsiteLayout)
+	connect(mapStateToProps, mapDispatchToProps)(WebsiteLayout)
 );

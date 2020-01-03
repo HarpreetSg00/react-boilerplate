@@ -106,7 +106,7 @@ module.exports = {
 	resolve: {
 		alias: {
 			modernizr$: path.resolve(__dirname, '.modernizrrc'),
-			container: path.resolve(__dirname, 'src/client/components/container/'),
+			containers: path.resolve(__dirname, 'src/client/components/containers/'),
 			general: path.resolve(__dirname, 'src/client/components/general/'),
 			views: path.resolve(__dirname, 'src/client/components/views/'),
 			utils: path.resolve(__dirname, 'src/client/utils/')
