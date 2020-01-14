@@ -11,9 +11,7 @@ const app = express();
 
 app.get('*.js', function(req, res, next) {
 	let aUrl = req.url.split('?');
-	console.log(aUrl);
 	req.url = aUrl[0] + '.gz?' + aUrl[1];
-	console.log(req.url);
 	res.set('Content-Encoding', 'gzip');
 	res.set('Content-Type', 'application/javascript');
 	next();

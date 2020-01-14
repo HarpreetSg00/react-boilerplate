@@ -1,5 +1,6 @@
 import Website from './layout/Website/Website';
 import Home, { loadHomeData } from 'views/Home';
+import About from 'views/About';
 
 const appRoutes = [
 	{
@@ -10,6 +11,11 @@ const appRoutes = [
 				exact: true,
 				component: Home
 				// loadData: loadHomeData
+			},
+			{
+				path: '/about',
+				exact: true,
+				component: About
 			}
 			/* Parameterized data */
 			/* {

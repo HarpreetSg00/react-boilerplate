@@ -4,8 +4,8 @@ import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import appRoutes from '../../Routes';
-import Footer from 'container/Footer';
-import Header from 'container/Header';
+import Footer from 'containers/Footer';
+import Header from 'containers/Header';
 import { changeloaderstatus } from './Website.action';
 
 class WebsiteLayout extends React.Component {
