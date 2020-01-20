@@ -10,38 +10,38 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 const config = {
-	// Building for node not broser
-	target: 'node',
-	context: path.resolve('./src'),
-	// entry file
-	entry: './server/index.js',
-	//output
-	output: {
-		filename: 'bundle.js',
-		path: path.resolve(__dirname, 'build')
-	},
-	plugins: [
-		new webpack.DefinePlugin({
-			IS_SERVER: true,
-			IS_CLIENT: false
-		}),
-		new BrowserSyncPlugin({
-			server: {
-				baseDir: ['build'],
-				middleware: [historyFallback()]
-			},
-			port: 3000,
-			host: 'localhost',
-			open: false
-		}),
-		new CleanWebpackPlugin(['build']),
-		new ExtractTextPlugin({
-			filename: 'css/style.css',
-			allChunks: true
-		}),
-		new Dotenv(),
-		new CompressionPlugin()
-	]
+  // Building for node not broser
+  target: 'node',
+  context: path.resolve('./src'),
+  // entry file
+  entry: './server/index.js',
+  //output
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'build'),
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      IS_SERVER: true,
+      IS_CLIENT: false,
+    }),
+    new BrowserSyncPlugin({
+      server: {
+        baseDir: ['build'],
+        middleware: [historyFallback()],
+      },
+      port: 3000,
+      host: 'localhost',
+      open: false,
+    }),
+    new CleanWebpackPlugin(['build']),
+    new ExtractTextPlugin({
+      filename: 'css/style.css',
+      allChunks: true,
+    }),
+    new Dotenv(),
+    new CompressionPlugin(),
+  ],
 };
 
 module.exports = merge(baseConfig, config);

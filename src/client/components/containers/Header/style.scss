@@ -1,48 +1,48 @@
 @import '../../../assets/scss/_variables';
 
 .navigation {
-	height: 70px;
-	background: $black;
-	.nav-container {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		height: inherit;
-		width: calc(100% - 20%);
-		margin: 0 auto;
-		@media (max-width: 768px) {
-			width: calc(100% - 6%);
-		}
-	}
-	nav {
-		width: calc(100% - 250px);
-		.nav-list {
-			display: flex;
-			justify-content: flex-end;
-			margin: 0;
-			padding: 0;
-			list-style: none;
-			align-items: center;
-			li {
-				.link {
-					padding: 20px 14px;
-					color: $white;
-					text-decoration: none;
-					background-color: transparent;
-					transition: background-color 0.5s ease-in-out;
-					&:hover {
-						background-color: $white;
-						color: $black;
-					}
-				}
-				.active {
-					background-color: $white;
-					color: $black;
-				}
-				&:not(:last-of-type) {
-					padding-right: 10px;
-				}
-			}
-		}
-	}
+  height: 70px;
+  background: $black;
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+    width: calc(100% - 20%);
+    margin: 0 auto;
+    @media (max-width: 768px) {
+      width: calc(100% - 6%);
+    }
+  }
+  nav {
+    width: calc(100% - 250px);
+    .nav-list {
+      display: flex;
+      justify-content: flex-end;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      align-items: center;
+      li {
+        .link {
+          padding: 20px 14px;
+          color: $white;
+          text-decoration: none;
+          background-color: transparent;
+          transition: background-color 0.5s ease-in-out;
+          &:hover {
+            background-color: $white;
+            color: $black;
+          }
+        }
+        .active {
+          background-color: $white;
+          color: $black;
+        }
+        &:not(:last-of-type) {
+          padding-right: 10px;
+        }
+      }
+    }
+  }
 }
