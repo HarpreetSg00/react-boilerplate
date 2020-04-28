@@ -1,0 +1,45 @@
+@import '../../../assets/scss/_variables';
+
+.home-wrapper {
+  position: relative;
+  .logo-img {
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    width: 300px;
+    animation: rotate infinite 20s linear;
+    img {
+      width: 100%;
+    }
+  }
+  .content {
+    padding-top: 340px;
+    text-align: center;
+    h1 {
+      margin-bottom: 21px;
+    }
+    h3 {
+      margin: 40px 0px 16px;
+    }
+    .list-packages {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      li {
+        padding: 0 10px;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(360deg);
+  }
+}

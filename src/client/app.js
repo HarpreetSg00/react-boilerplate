@@ -7,24 +7,20 @@ import './assets/scss/style.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
-    constructor(props){
-        super(props);
-        this.unlisten;
-    }
+	constructor(props) {
+		super(props);
+		this.unlisten;
+	}
 
-    componentDidMount() {
-        if (IS_CLIENT) {
-            /* Handle something on browser only */
-        }
-    }
+	componentDidMount() {
+		if (IS_CLIENT) {
+			/* Handle something on browser only */
+		}
+	}
 
-    render() {
-        return (
-            <BrowserRouter>
-                {renderRoutes(appRoutes)}
-            </BrowserRouter>
-        )
-    }
+	render() {
+		return <BrowserRouter>{renderRoutes(appRoutes)}</BrowserRouter>;
+	}
 }
 
 export default App;
