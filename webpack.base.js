@@ -1,4 +1,6 @@
 const path = require('path');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 require('dotenv').config();
@@ -36,7 +38,10 @@ module.exports = {
 							}
 						},
 						{
-							loader: 'postcss-loader'
+							loader: 'postcss-loader',
+							options: {
+								plugins: () => [autoprefixer(), cssnano()]
+							}
 						},
 						{
 							loader: 'sass-loader'

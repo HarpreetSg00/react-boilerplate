@@ -16,6 +16,7 @@
     "author": "Studio Graphene",
     "license": "ISC",
     "devDependencies": {
+        "autoprefixer": "^9.7.6",
         "babel-cli": "6.26.0",
         "babel-core": "6.26.3",
         "babel-loader": "7.1.4",
@@ -31,6 +32,7 @@
         "clean-webpack-plugin": "0.1.19",
         "copy-webpack-plugin": "4.5.1",
         "css-loader": "0.28.11",
+        "cssnano": "^4.1.10",
         "dotenv": "^8.1.0",
         "dotenv-webpack": "^1.7.0",
         "exports-loader": "0.7.0",
@@ -102,10 +104,5 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
-    },
-    "postcss": {
-        "plugins": {
-            "autoprefixer": {}
-        }
     }
 }
