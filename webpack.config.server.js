@@ -8,10 +8,11 @@ const historyFallback = require('connect-history-api-fallback');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
+const nodeExternals = require("webpack-node-externals");
 
 const config = {
   // Building for node not broser
-  target: 'node',
+  target: 'node', // in order to ignore built-in modules like path, fs, etc.
   context: path.resolve('./src'),
   // entry file
   entry: './server/index.js',
@@ -42,6 +43,7 @@ const config = {
     new Dotenv(),
     new CompressionPlugin(),
   ],
+  externals: [nodeExternals()] // in order to ignore all modules in node_modules folder
 };
 
 module.exports = merge(baseConfig, config);

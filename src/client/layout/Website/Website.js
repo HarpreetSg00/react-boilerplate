@@ -14,7 +14,7 @@ class WebsiteLayout extends React.Component {
 		this.unlisten;
 	}
 
-	componentDidMount() {}
+	componentDidMount() { }
 
 	render() {
 		return (
@@ -26,7 +26,7 @@ class WebsiteLayout extends React.Component {
 		);
 	}
 
-	componentWillUnmount() {}
+	componentWillUnmount() { }
 }
 
 const mapStateToProps = state => ({});

@@ -1,9 +1,12 @@
 import React from 'react';
-import './style.scss';
+import useStyles from 'isomorphic-style-loader/useStyles';
+import s from './style.scss';
+
 
 function Footer() {
+  useStyles(s);
   return (
-    <footer className="footer">
+    <footer className={s.footer}>
       <p>No copyright issues</p>
     </footer>
   );

@@ -1,6 +1,7 @@
-@import 'variables';
-
-body {
-    position: relative;
-    min-height: 100vh;
-}
+@import './reset.scss';
+@import './fonts.scss';
+@import './variables.scss';
+@import './mixins.scss';
+@import './breakpoints.scss';
+@import './typography.scss';
+@import './common.scss';

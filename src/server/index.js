@@ -9,7 +9,7 @@ require('dotenv').config();
 
 const app = express();
 
-app.get('*.js', function(req, res, next) {
+app.get('*.js', function (req, res, next) {
 	let aUrl = req.url.split('?');
 	req.url = aUrl[0] + '.gz?' + aUrl[1];
 	res.set('Content-Encoding', 'gzip');

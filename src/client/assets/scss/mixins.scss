@@ -1,0 +1,40 @@
+@mixin set-font($size, $color: #262626, $family: null, $weight: normal, $lh: normal, $ls: normal) {
+	color: $color;
+    font-size: $size;
+    font-family: $family, sans-serif;
+    font-weight: $weight;
+	line-height: $lh;
+    letter-spacing: $ls;
+}
+
+// This will handled by autoprefixer plugin
+// @mixin style-placeholder($color, $fontSize, $fontFamily, $letterSpacing: normal) {
+//     &:-moz-placeholder {
+//         // Firefox 18
+//         color: $color;
+//         font-family: $fontFamily;
+//         font-size: $fontSize;
+//         letter-spacing: $letterSpacing;
+//     }
+//     &::-moz-placeholder {
+//         // Firefox 19
+//         color: $color;
+//         font-family: $fontFamily;
+//         font-size: $fontSize;
+//         letter-spacing: $letterSpacing;
+//     }
+//     &:-ms-input-placeholder {
+//         color: $color;
+//         font-family: $fontFamily;
+//         font-size: $fontSize;
+//         letter-spacing: $letterSpacing;
+//     } 
+//     &::placeholder {
+//         color: $color;
+//         font-family: $fontFamily;
+//         font-size: $fontSize;
+//         letter-spacing: $letterSpacing;
+//     }
+// }
+  
+  

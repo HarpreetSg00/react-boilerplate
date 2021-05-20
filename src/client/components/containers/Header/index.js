@@ -1,11 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './style.scss';
+import useStyles from 'isomorphic-style-loader/useStyles';
+import s from './style.scss';
 
 function Header() {
+  useStyles(s);
   return (
-    <section className="navigation">
-      <div className="nav-container">
+    <section className={s.navigation}>
+      <div className={s['nav-container']}>
         <div>
           <img
             alt="StudioGraphene"
@@ -14,16 +16,16 @@ function Header() {
           />
         </div>
         <nav>
-          <ul className="nav-list">
+          <ul className={s['nav-list']}>
             <li>
-              <NavLink exact className="link" activeClassName="active" to="/">
+              <NavLink exact className={s.link} activeClassName="active" to="/">
                 Home
               </NavLink>
             </li>
             <li>
               <NavLink
                 exact
-                className="link"
+                className={s.link}
                 activeClassName="active"
                 to="/about"
               >

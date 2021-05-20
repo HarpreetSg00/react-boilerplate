@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { getSomeData } from './action';
-import './style.scss';
-
+import withStyles from 'isomorphic-style-loader/withStyles';
+import s from './style.scss';
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -13,23 +13,23 @@ class Home extends React.Component {
         */
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     return (
-      <div className="home-wrapper">
-        <div className="logo-img">
+      <div className={s.homeWrapper}>
+        <div className={s['logo-img']}>
           <img src="/images/react.svg" role="img" alt="logo" />
         </div>
-        <div className="content">
-          <h1>Welcome to Your React.js App</h1>
+        <div className={s.content}>
+          <h1>Welcome to Your React.js App Testing 123</h1>
           <p>
             For a guide and recipes on how to configure this project,
             <br />
             check out <strong>README.md</strong> file.
           </p>
           <h3>Installed Package</h3>
-          <ul className="list-packages">
+          <ul className={s['list-packages']}>
             <li>react-router-dom</li>
             <li>redux</li>
             <li>redux-thunk</li>
@@ -58,4 +58,5 @@ function loadHomeData({ store }) {
 
 export { loadHomeData };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+const HomeComponent = connect(mapStateToProps, mapDispatchToProps)(Home);
+export default withStyles(s)(HomeComponent);

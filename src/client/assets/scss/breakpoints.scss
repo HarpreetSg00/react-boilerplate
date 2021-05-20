@@ -1,0 +1,21 @@
+$breakpoint--xs: 320px;
+$breakpoint--mob: 600px;
+$breakpoint--tab: 980px;
+
+@mixin breakpoint($class) {
+    @if ($class == xs) {
+        @media (max-width: $breakpoint--xs) {
+            @content;
+        }
+    } @else if( $class == mob ) {
+        @media (max-width: $breakpoint--mob) {
+             @content;
+        }
+    }@else if $class == tab {
+        @media (max-width: $breakpoint--tab) {
+            @content;
+        }
+    } @else {
+        @warn "Breakpoint mixin supports: xs, mob, tab"
+    }
+}

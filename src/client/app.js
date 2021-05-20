@@ -1,25 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { renderRoutes } from 'react-router-config';
 import { BrowserRouter } from 'react-router-dom';
+import useStyles from 'isomorphic-style-loader/useStyles';
 
 import appRoutes from './Routes';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './assets/scss/style.scss';
+import gs from './assets/scss/style.scss';
 
-class App extends Component {
-	constructor(props) {
-		super(props);
-	}
 
-	componentDidMount() {
-		if (IS_CLIENT) {
-			/* Handle something on browser only */
-		}
-	}
+function App({ }) {
+	useStyles(gs);
 
-	render() {
-		return <BrowserRouter>{renderRoutes(appRoutes)}</BrowserRouter>;
-	}
+	return (
+		<BrowserRouter>{renderRoutes(appRoutes)}</BrowserRouter>
+	)
 }
 
 export default App;

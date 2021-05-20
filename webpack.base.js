@@ -5,6 +5,60 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 require('dotenv').config();
 
+const styleConfig = [
+	{
+		// Module Styles
+		test: /\.s[ac]ss$/i,
+		use: [
+			"isomorphic-style-loader",
+			{
+				loader: "css-loader",
+				options: {
+					importLoaders: 1,
+					modules: true,
+					localIdentName: "[local]--[hash:base64:5]"
+				}
+			},
+			{
+				loader: 'postcss-loader',
+				options: {
+					plugins: () => [autoprefixer(), cssnano()]
+				}
+			},
+			{
+				loader: 'sass-loader'
+			}
+		],
+		exclude: [/src\/client\/assets\/scss/, /node_modules/]
+	},
+	{
+		// Global Styles
+		test: /\.s[ac]ss$/i,
+		use: [
+			"isomorphic-style-loader",
+			{
+				loader: "css-loader",
+				options: {
+					importLoaders: 1,
+					modules: {
+						localIdentName: "[local]"
+					}
+				}
+			},
+			{
+				loader: 'postcss-loader',
+				options: {
+					plugins: () => [autoprefixer(), cssnano()]
+				}
+			},
+			{
+				loader: 'sass-loader'
+			}
+		],
+		include: path.join(__dirname, "src/client/assets/scss/style.scss")
+	}
+];
+
 module.exports = {
 	//run babel on everyfile
 	mode: process.env.MODE,
@@ -26,30 +80,7 @@ module.exports = {
 					presets: ['react', 'es2015', 'stage-0']
 				}
 			},
-			{
-				test: /\.(css|sass|scss)$/,
-				use: ExtractTextPlugin.extract({
-					fallback: 'style-loader',
-					use: [
-						{
-							loader: 'css-loader',
-							options: {
-								minimize: true
-							}
-						},
-						{
-							loader: 'postcss-loader',
-							options: {
-								plugins: () => [autoprefixer(), cssnano()]
-							}
-						},
-						{
-							loader: 'sass-loader'
-						}
-					]
-					// use: 'css-loader?-autoprefixer!postcss-loader!sass-loader'
-				})
-			},
+			...styleConfig,
 			{
 				test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
 				use: [
@@ -114,7 +145,8 @@ module.exports = {
 			containers: path.resolve(__dirname, 'src/client/components/containers/'),
 			general: path.resolve(__dirname, 'src/client/components/general/'),
 			views: path.resolve(__dirname, 'src/client/components/views/'),
-			utils: path.resolve(__dirname, 'src/client/utils/')
+			utils: path.resolve(__dirname, 'src/client/utils/'),
+			"style-loader": "isomorphic-style-loader/useStyles"
 		}
 	}
 };
