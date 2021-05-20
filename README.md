@@ -103,3 +103,7 @@ const config = {
 - Most of the type are stateful
 - are aware of Redux, Router, etc
 
+
+### 7. isomorphic-style-loader
+- Please have a look here https://github.com/kriasoft/isomorphic-style-loader
+
