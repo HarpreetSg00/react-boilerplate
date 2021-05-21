@@ -146,6 +146,7 @@ module.exports = {
 			general: path.resolve(__dirname, 'src/client/components/general/'),
 			views: path.resolve(__dirname, 'src/client/components/views/'),
 			utils: path.resolve(__dirname, 'src/client/utils/'),
+			store: path.resolve(__dirname, 'src/client/store/'),
 			"style-loader": "isomorphic-style-loader/useStyles"
 		}
 	}

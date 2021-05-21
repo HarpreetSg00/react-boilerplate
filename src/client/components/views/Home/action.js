@@ -1,9 +1,6 @@
-import HTTP from '../../../utils/http.service';
+import * as types from "store/action-type";
 
-export const getSomeData = () => async dispatch => {
-  const res = await HTTP.get('/some-api-route');
-  dispatch({
-    type: 'GET_SOME_DATA',
-    payload: res.data,
-  });
-};
+export const getSomeDataAction = data => ({
+  type: types.FETCH_SOME_DATA_REQUEST,
+  payload: data
+});

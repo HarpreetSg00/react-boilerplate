@@ -107,3 +107,6 @@ const config = {
 ### 7. isomorphic-style-loader
 - Please have a look here https://github.com/kriasoft/isomorphic-style-loader
 
+### 8. Redux-saga
+- https://redux-saga.js.org/docs/introduction/GettingStarted
+
