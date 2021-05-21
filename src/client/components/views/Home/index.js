@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getSomeData } from './action';
+import { getSomeDataAction } from './action';
 import withStyles from 'isomorphic-style-loader/withStyles';
 import s from './style.scss';
 class Home extends React.Component {
@@ -13,7 +13,10 @@ class Home extends React.Component {
         */
   }
 
-  componentDidMount() { }
+  componentDidMount() {
+    //TODO**** remove this
+    this.props.getSomeDataFn();
+  }
 
   render() {
     return (
@@ -32,7 +35,6 @@ class Home extends React.Component {
           <ul className={s['list-packages']}>
             <li>react-router-dom</li>
             <li>redux</li>
-            <li>redux-thunk</li>
             <li>axios</li>
             <li>many more</li>
           </ul>
@@ -47,12 +49,12 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getSomeData: bindActionCreators(getSomeData, dispatch),
+  getSomeDataFn: bindActionCreators(getSomeDataAction, dispatch),
 });
 
 function loadHomeData({ store }) {
   return Promise.all([
-    store.dispatch(getSomeData()) /* store.dispatch(getWhatWeDoList()) */,
+    store.dispatch(getSomeDataAction()) /* store.dispatch(getWhatWeDoList()) */,
   ]);
 }
 

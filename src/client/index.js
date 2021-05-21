@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import StyleContext from "isomorphic-style-loader/StyleContext";
 import { Provider } from 'react-redux';
-import storeClient from './store';
+import storeClient from 'store/store.js';
 import App from './app';
 
 const insertCss = (...styles) => {
