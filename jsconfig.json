@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@container/*": ["src/client/components/container/*"],
+      "@general": ["src/client/components/general"],
+      "@general/*": ["src/client/components/general/*"],
+      "@view/*": ["src/client/components/view/*"],
+      "@utils/*": ["src/client/utils/*"],
+      "@store/*": ["src/client/store/"]
+    }
+  },
+  "exclude": ["node_modules", "build"]
+}

@@ -1,15 +1,11 @@
-import { createStore, applyMiddleware, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
-import homeReducer from '../../client/components/views/Home/reducer';
+import { createStore, applyMiddleware, compose } from 'redux';
+import createSagaMiddleware from 'redux-saga';
+import rootReducer from '../../client/store/root-reducer';
+
+// create the saga middleware
+const sagaMiddleware = createSagaMiddleware();
 
 export default () => {
-	const store = createStore(
-		combineReducers({
-			homeReducer
-			/* somemorereducers */
-		}),
-		{},
-		applyMiddleware(thunk)
-	);
-	return store;
+  const store = createStore(rootReducer, compose(applyMiddleware(sagaMiddleware)));
+  return store;
 };

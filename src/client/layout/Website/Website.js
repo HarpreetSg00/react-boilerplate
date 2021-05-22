@@ -1,40 +1,46 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { withRouter } from 'react-router-dom';
-import { renderRoutes } from 'react-router-config';
+import { withRouter, Route, Redirect, Switch } from 'react-router-dom';
+import Footer from '@container/Footer';
+import Header from '@container/Header';
 import appRoutes from '../../Routes';
-import Footer from 'containers/Footer';
-import Header from 'containers/Header';
-import { changeloaderstatus } from './Website.action';
+import { changeLoaderStatus } from './Website.action';
 
-class WebsiteLayout extends React.Component {
-	constructor(props) {
-		super(props);
-		this.unlisten;
-	}
+/* check authentication on each route change */
+const renderRoutes = routes => {
+  const isAuthorized = true;
+  return routes
+    ? routes.map((route, i) => (
+        <Route
+          key={route.key || i}
+          path={route.path}
+          exact={route.exact}
+          strict={route.strict}
+          render={props => {
+            if (isAuthorized) {
+              return <route.component {...props} route={route} />;
+            }
+            return <Redirect to="/" />;
+          }}
+        />
+      ))
+    : null;
+};
 
-	componentDidMount() { }
-
-	render() {
-		return (
-			<div className="site-wrapper">
-				<Header />
-				{renderRoutes(appRoutes[0].routes)}
-				<Footer />
-			</div>
-		);
-	}
-
-	componentWillUnmount() { }
+function WebsiteLayout() {
+  return (
+    <div>
+      <Header />
+      <Switch>{renderRoutes(appRoutes[0].routes)}</Switch>
+      <Footer />
+    </div>
+  );
 }
 
+// eslint-disable-next-line no-unused-vars
 const mapStateToProps = state => ({});
 
-const mapDispatchToProps = dispatch => ({
-	changeloaderstatus: bindActionCreators(changeloaderstatus, dispatch)
-});
+const mapDispatchToProps = dispatch => bindActionCreators({ changeLoaderStatus }, dispatch);
 
-export default withRouter(
-	connect(mapStateToProps, mapDispatchToProps)(WebsiteLayout)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(WebsiteLayout));
