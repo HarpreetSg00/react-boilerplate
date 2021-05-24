@@ -141,5 +141,17 @@ module.exports = {
       },
     },
   },
+  overrides: [
+    {
+      files: ['**/__tests__/**'],
+      settings: {
+        'import/resolver': {
+          jest: {
+            jestConfigFile: path.join(__dirname, './jest.config.js'),
+          },
+        },
+      },
+    },
+  ],
   globals: { IS_SERVER: false, IS_CLIENT: true, __VERSION__: 'readonly' },
 };

@@ -1,6 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import About from '@view/About';
 import { getSomeDataAction } from './action';
 import homeStyle from './home.module.scss';
 
@@ -12,6 +13,7 @@ function Home(props) {
 
   return (
     <div className={homeStyle.homeWrapper}>
+      <About />
       <div className={homeStyle['logo-img']}>
         <img src="/images/react.svg" alt="logo" />
       </div>
