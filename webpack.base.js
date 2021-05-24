@@ -1,21 +1,6 @@
 const path = require('path');
-const autoprefixer = require('autoprefixer');
-const cssnano = require('cssnano');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 require('dotenv').config();
-
-const commonCssLoader = [
-  {
-    loader: 'postcss-loader',
-    options: {
-      plugins: () => [autoprefixer(), cssnano()],
-    },
-  },
-  {
-    loader: 'sass-loader',
-  },
-];
 
 module.exports = {
   // run babel on every file
@@ -26,44 +11,6 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
-      },
-      {
-        test: /\.(sa|sc|c)ss$/,
-        exclude: /\.module\.(sa|sc|c)ss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: 'global',
-                importLoaders: 2,
-                camelCase: true,
-                sourceMap: false, // turned off as causes delay
-              },
-            },
-            ...commonCssLoader,
-          ],
-        }),
-      },
-      {
-        test: /\.module\.(sa|sc|c)ss$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                localIdentName: '[name]_[local]_[hash:base64:5]',
-                importLoaders: 2,
-                camelCase: true,
-                sourceMap: false, // turned off as causes delay
-              },
-            },
-            ...commonCssLoader,
-          ],
-        }),
       },
       {
         test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
