@@ -2,7 +2,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const historyFallback = require('connect-history-api-fallback');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -36,7 +36,7 @@ const config = {
       host: 'localhost',
       open: false,
     }),
-    new CleanWebpackPlugin(['build']),
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
     new ExtractTextPlugin({
       filename: 'css/style.css',
       allChunks: true,

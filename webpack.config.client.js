@@ -2,7 +2,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
@@ -24,30 +24,23 @@ const config = {
     path: path.resolve(__dirname, 'public'),
     publicPath: '/',
   },
-  // optimization: {
-  //   splitChunks: {
-  //     cacheGroups: {
-  //       commons: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         name: 'vendors',
-  //         chunks: 'all',
-  //       },
-  //     },
-  //   },
-  // },
   plugins: [
     new webpack.DefinePlugin({
       IS_SERVER: false,
       IS_CLIENT: true,
       __VERSION__: new Date().getTime(),
     }),
-    new CleanWebpackPlugin(['public']),
-    new CopyWebpackPlugin([
-      {
-        from: './client/assets',
-        to: './',
-      },
-    ]),
+    new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: './client/assets',
+          globOptions: {
+            ignore: ['*.scss'],
+          },
+        },
+      ],
+    }),
     new ExtractTextPlugin({
       filename: 'css/style.css',
       allChunks: true,

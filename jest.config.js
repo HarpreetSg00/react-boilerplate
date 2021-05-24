@@ -33,4 +33,5 @@ module.exports = {
     '^@store(.*)$': '<rootDir>/src/client/store$1',
     '^@utils(.*)$': '<rootDir>src/client/utils$1',
   },
+  watchPlugins: ['jest-watch-typeahead/filename', 'jest-watch-typeahead/testname'],
 };
