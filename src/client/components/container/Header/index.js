@@ -1,13 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import useStyles from 'isomorphic-style-loader/useStyles';
-import s from './style.scss';
+import headerStyle from './header.module.scss';
 
 function Header() {
-  useStyles(s);
   return (
-    <section className={s.navigation}>
-      <div className={s['nav-container']}>
+    <section className={headerStyle.navigation}>
+      <div className={headerStyle['nav-container']}>
         <div>
           <img
             alt="StudioGraphene"
@@ -16,17 +14,22 @@ function Header() {
           />
         </div>
         <nav>
-          <ul className={s['nav-list']}>
+          <ul className={headerStyle['nav-list']}>
             <li>
-              <NavLink exact className={s.link} activeClassName="active" to="/">
+              <NavLink
+                exact
+                className={headerStyle.link}
+                activeClassName={headerStyle.active}
+                to="/"
+              >
                 Home
               </NavLink>
             </li>
             <li>
               <NavLink
                 exact
-                className={s.link}
-                activeClassName="active"
+                className={headerStyle.link}
+                activeClassName={headerStyle.active}
                 to="/about"
               >
                 About

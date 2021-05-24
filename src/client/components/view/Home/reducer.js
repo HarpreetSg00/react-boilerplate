@@ -1,10 +1,10 @@
-import * as types from "store/action-type";
+import * as types from '@store/action-type';
 
 const initialState = {
   someData: {
     dataObj: {},
     errorObj: {},
-    status: null
+    status: null,
   },
 };
 
@@ -16,8 +16,8 @@ const homeReducer = (state = initialState, action) => {
         someData: {
           status: true,
           dataObj: action.payload,
-          errorObj: {}
-        }
+          errorObj: {},
+        },
       };
       break;
     case types.FETCH_SOME_DATA_ERROR:
@@ -26,8 +26,8 @@ const homeReducer = (state = initialState, action) => {
         someData: {
           status: false,
           dataObj: {},
-          errorObj: action.payload
-        }
+          errorObj: action.payload,
+        },
       };
       break;
   }

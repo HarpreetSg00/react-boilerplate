@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import homeReducer from 'views/Home/reducer';
+import homeReducer from '@view/Home/reducer';
 
 const reducer = combineReducers({
-    homeReducer
-    /* somemorereducers */
+  homeReducer,
+  /* somemorereducers */
 });
 
 export default reducer;

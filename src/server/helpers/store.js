@@ -1,19 +1,11 @@
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import homeReducer from '../../client/components/views/Home/reducer';
+import rootReducer from '../../client/store/root-reducer';
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
-const reducer = combineReducers({
-	homeReducer
-	/* somemorereducers */
-});
-
 export default () => {
-	const store = createStore(
-		reducer,
-		compose(applyMiddleware(sagaMiddleware))
-	);
-	return store;
+  const store = createStore(rootReducer, compose(applyMiddleware(sagaMiddleware)));
+  return store;
 };

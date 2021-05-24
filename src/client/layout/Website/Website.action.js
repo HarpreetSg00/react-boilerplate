@@ -1,6 +1,4 @@
-export const changeloaderstatus = (status) => {
-    return {
-        type: 'CHANGE_LOADER_STATUS',
-        payload: status
-    }
-}
+export const changeLoaderStatus = status => ({
+  type: 'CHANGE_LOADER_STATUS',
+  payload: status,
+});

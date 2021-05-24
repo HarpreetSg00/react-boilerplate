@@ -1,7 +1,7 @@
+import Home from '@view/Home';
+import About from '@view/About';
+
 import Website from './layout/Website/Website';
-// eslint-disable-next-line no-unused-vars
-import Home, { loadHomeData } from 'views/Home';
-import About from 'views/About';
 
 const appRoutes = [
   {
@@ -11,20 +11,12 @@ const appRoutes = [
         path: '/',
         exact: true,
         component: Home,
-        // loadData: loadHomeData
       },
       {
         path: '/about',
         exact: true,
         component: About,
       },
-      /* Parameterized data */
-      /* {
-            path: '/route/:slug',
-            exact: true,
-            component: Home,
-            loadDataWithMatch: loadHomeData
-        }, */
     ],
   },
 ];
